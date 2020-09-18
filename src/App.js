@@ -6,8 +6,14 @@ class App extends React.Component {
     data: []
   }
 
+  getPeople = () => {
+    return this.state.data.people.map(el => <div>{el.name}</div>)
+  }
+
   render() {
-    return <div>App</div>
+    return(
+      this.state.data.length === 0 ? null : <div>{this.getPeople()}</div>
+    )
   }
 
   componentDidMount() {
